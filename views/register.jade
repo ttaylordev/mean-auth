@@ -1,11 +1,13 @@
 extends base
 
 block vars
-    var title = 'Register'
+    - var title = 'Register'
     
 block body
     h1 Create an Account
     form(method="post")
+        input(type="hidden", name="_csrf", value=csrfToken)
+        
         span First Name:
         input(type="text", name="firstName", required=true)
         br

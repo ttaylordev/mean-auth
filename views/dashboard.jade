@@ -1,7 +1,7 @@
 extends base
 
 block vars
-    var title = 'Dashboard'
+    - var title = 'Dashboard'
     
 block body
     h1 Dashboard
@@ -9,8 +9,8 @@ block body
     <a href="/logout">logout
     
     
-   // h2 User Info
-   // p First Name: #{user.firstName}
-   // p Lastt Name: #{user.lastName}
-   // p Email: #{user.email}
-   // p Data: #{user.data}
+    h2 User Info
+    p First Name: #{user.firstName}
+    p Lastt Name: #{user.lastName}
+    p Email: #{user.email}
+    p Data: #{user.data}
