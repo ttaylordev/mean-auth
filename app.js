@@ -35,7 +35,10 @@ app.use(sessions({
     cookieName: 'session',
     secret: '13298cnqiop8hiuopayd98poq23fq36y7cft7uasdi',
     duration: 30 * 60 * 1000,
-    activeDuration: 5 * 60 * 1000
+    activeDuration: 5 * 60 * 1000,
+    httpOnly: true, // deny cookie access to front-end javascript
+    secure: true, // only use cookies over https
+    ephemeral: true // delete on browser close
 }));
 
 app.use(csrf());
@@ -103,7 +106,7 @@ app.post('/register', function (req, res) {
 
 app.get('/login', function (req, res) {
     'use strict';
-    res.render('login.jade');
+    res.render('login.jade', {csrfToken: req.csrfToken()});
 });
 
 app.post('/login', function (req, res) {
