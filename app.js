@@ -69,12 +69,12 @@ function requireLogin(req, res, next) {
 // api
 app.get('/', function (req, res) {
     'use strict';
-    res.render('index.jade', { csrfToken: req.csrfToken()});
+    res.render('index.jade');
 });
 
 app.get('/register', function (req, res) {
     'use strict';
-    res.render('register.jade');
+    res.render('register.jade', {csrfToken: req.csrfToken()});
 });
 
 
