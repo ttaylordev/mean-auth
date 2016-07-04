@@ -70,7 +70,7 @@ function requireLogin(req, res, next) {
 }
 
 // api
-app.get('/', function (req, res) {
+app.get('/home', function (req, res) {
     'use strict';
     res.render('index.jade');
 });
@@ -132,7 +132,7 @@ app.get('/dashboard', requireLogin, function (req, res) {
 app.get('/logout', function (req, res) {
     'use strict';
     req.session.reset();
-    res.redirect('/');
+    res.redirect('/home');
 });
 
 app.listen(3000);
